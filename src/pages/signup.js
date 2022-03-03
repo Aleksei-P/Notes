@@ -75,7 +75,17 @@ const SignUp = (props) => {
 
 
   return (
-    <Wrapper>
+    <React.Fragment>
+      <UserForm action={signUp} formType="signup" />
+      {loading && <p>Loading</p>}
+      {error && <p>Error</p>}
+    </React.Fragment>
+  );
+};
+
+export default SignUp;
+/*
+ <Wrapper>
       <h2>Sign Up</h2>
       <Form
         onSubmit={(event) => {
@@ -117,7 +127,4 @@ const SignUp = (props) => {
         <Button type="submit">Submit</Button>
       </Form>
     </Wrapper>
-  );
-};
-
-export default SignUp;
+  */

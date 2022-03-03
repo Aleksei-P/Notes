@@ -81,9 +81,11 @@ import Pages from './pages';
 
 const App = () => {
     return (
-    <ApolloProvider client={client}>
+      <ApolloProvider client={client}>
         <GlobalStyle />
+      {/* <BrowserRouter> */}
         <Pages />
+        {/* </BrowserRouter> */}
     </ApolloProvider>
     );
 };
