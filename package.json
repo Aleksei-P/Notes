@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "description": "[WIP] Web code examples for JavaScript Everywhere by Adam Scott, published by O'Reilly Media",
-  "main": "src/index.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "final": "parcel final/index.html",
@@ -17,7 +16,7 @@
     "url": "git+https://github.com/javascripteverywhere/web.git"
   },
   "keywords": [],
-  "author": "Adam Scott <adam@jseverywhere.io>",
+  "author": "Adam Scott>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/javascripteverywhere/web/issues"
@@ -25,10 +24,12 @@
   "homepage": "https://github.com/javascripteverywhere/web#readme",
   "dependencies": {
     "@apollo/client": "3.5.8",
+    "@swc/helpers": "^0.3.6",
     "@types/react": "^17.0.39",
     "apollo-link-context": "1.0.20",
     "date-fns": "2.28.0",
     "graphql": "^16.3.0",
+    "history": "^5.3.0",
     "normalize.css": "8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
