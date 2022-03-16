@@ -13,12 +13,9 @@ import {
 import Layout from '../components/Layout';
 
 import { useQuery, gql } from '@apollo/client';
+import { IS_LOGGED_IN } from '../components/gql/query';
 
-const IS_LOGGED_IN = gql`
-  {
-    isLoggedIn @client
-  }
-`;
+
 
 import Home from './home';
 import MyNotes from './mynotes';
@@ -26,6 +23,8 @@ import Favorites from './favorites';
 import NotePage from './note';
 import SignUp from './signup';
 import SignIn from './signin';
+import NewNote from './new';
+import EditNote from './edit';
 
 const Pages = () => {
   return (
@@ -38,8 +37,9 @@ const Pages = () => {
 
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/mynotes" element={<MyNotes />} />
+              <Route exact path="/new" element={<NewNote />} />
+              <Route exact path="/edit/:id" element={<EditNote />} />
             </Route>
-
             {/* <PrivateRoute path="/mynotes" element={<MyNotes />} /> */}
 
             {/*<Route path="/mynotes" element={<MyNotes />} /> */}
@@ -70,15 +70,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       <Route
         {...rest}
         render={(props) =>
-          data.isLoggedIn ? (
+          data.isLoggedIn.data ? (
             <Component {...props} />
           ) : (
-            <Link
-              // to={{
-              //   pathname: '/signin',
-              //   state: { from: props.location },
-              // }}
-              to="/signin"
+            <Redirect
+              to={{
+                pathname: '/signin',
+                state: { from: props.location },
+              }}
             />
           )
         }
@@ -88,6 +87,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 */
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
   // if the data is loading, display a loading message
@@ -103,16 +103,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   // If not, return element that will navigate to login page
   return (
   data.isLoggedIn.data === true ? (
-    // <Route
-    //       {...rest}
-    //       render={(props) => {
-
-    //         <Component {...props} />}} />
-    <Outlet />
+    <Outlet {...rest} />
   ) : (
     <Navigate to="/signin" />
   )
   )
 };
+
 
 export default Pages;

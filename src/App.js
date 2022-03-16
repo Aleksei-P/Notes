@@ -28,8 +28,9 @@ const cache = new InMemoryCache();
 
 const authLink = setContext((_, { headers }) => {
   return {
-    header: {
+    headers: {
       ...headers,
+
       authorization: localStorage.getItem('token') || '',
     },
 
@@ -44,7 +45,11 @@ const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache,
     resolvers: {},
-    connectToDevTools: true
+    connectToDevTools: true,
+    cors: {
+      origin: '*',
+      credentials: true
+    },
 });
 
 cache.writeQuery({

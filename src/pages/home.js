@@ -9,31 +9,13 @@ import NoteFeed from '../components/NoteFeed';
 
 import Button from '../components/Button';
 
-const GET_NOTES = gql`
-  query NoteFeed($cursor: String) {
-    noteFeed(cursor: $cursor) {
-      hasNextPage
-      cursor
-      notes {
-        id
-        content
-        createdAt
-        favoriteCount
-        author {
-          id
-          username
-          avatar
-        }
-      }
-    }
-  }
-`;
+import { GET_NOTES } from '../components/gql/query';
 
 const Home = () => {
   const { data, loading, error, fetchMore } = useQuery(GET_NOTES);
 
   if (loading) return <p>loading..</p>;
-  if (error) return <p>error</p>;
+  if (error) return <p>{error.message}</p>;
 
   return (
     <React.Fragment>
@@ -61,7 +43,7 @@ const Home = () => {
             })
           }
         >
-          Click me
+          load more
         </Button>
       )}
     </React.Fragment>

@@ -31,5 +31,7 @@ a:focus {
 code,
 pre {
     max-width: 100%;
+    overflow: auto;
+    margin: 0 auto;
 }
 `;
