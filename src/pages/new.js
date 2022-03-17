@@ -38,7 +38,7 @@ const NewNote = props => {
         history.push(`note/${data.newNote.id}`);
         location.reload();
 
-        // return data
+        return data
       }
     });
     console.log('new', data);
