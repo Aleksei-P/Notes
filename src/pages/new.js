@@ -36,9 +36,9 @@ const NewNote = props => {
       refetchQueries: [{query: GET_NOTES}, {query: GET_MY_NOTES}],
       onCompleted: data => {
         history.push(`note/${data.newNote.id}`);
-        location.reload();
+        // location.reload();
 
-        return data
+        // return data
       }
     });
     console.log('new', data);
