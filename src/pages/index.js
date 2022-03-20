@@ -15,8 +15,6 @@ import Layout from '../components/Layout';
 import { useQuery, gql } from '@apollo/client';
 import { IS_LOGGED_IN } from '../components/gql/query';
 
-
-
 import Home from './home';
 import MyNotes from './mynotes';
 import Favorites from './favorites';

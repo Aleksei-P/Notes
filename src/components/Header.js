@@ -5,8 +5,8 @@ import styled from 'styled-components';
 // import { useQuery, gql } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
 // import { withRouter } from 'react-router';
-import { createBrowserHistory } from 'history';
-let history = createBrowserHistory();
+
+import { useNavigate } from 'react-router-dom';
 
 import ButtonAsLink from "./ButtonAsLink";
 import logo from '../img/logo.svg';
@@ -56,6 +56,7 @@ const Header = (props) => {
 
   const { data, client } = useQuery(IS_LOGGED_IN);
 
+  let navigate = useNavigate();
   // client.writeQuery({
   //   query: IS_LOGGED_IN,
   //   data: { isLoggedIn: !!localStorage.getItem('token') },
@@ -73,7 +74,7 @@ const Header = (props) => {
           <UserState>{
             data.isLoggedIn.data ? (
               <ButtonAsLink onClick={() => {
-                localStorage.removeItem('token');
+              localStorage.removeItem('token');
               client.resetStore();
               client.writeQuery({
                 query: gql`
@@ -86,8 +87,7 @@ const Header = (props) => {
                 },
               });
 
-              history.push('/')
-              location.reload();
+              navigate('/')
               return {data};
               }}
               >

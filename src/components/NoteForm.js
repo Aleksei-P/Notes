@@ -33,7 +33,6 @@ const NoteForm = (props) => {
           onSubmit={(evt) => {
             evt.preventDefault();
 
-
             props.action({
               variables: {
                 ...values,

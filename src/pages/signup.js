@@ -1,20 +1,17 @@
 import React, { useEffect, useState, Component } from 'react';
 import { useMutation, useApolloClient, gql } from '@apollo/client';
 
-import { useHistory } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-let history = createBrowserHistory();
+import { useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import Button from '../components/Button';
 import UserForm from '../components/UserForm';
 
 const SIGNUP_USER = gql`
   mutation signUp($email: String!, $username: String!, $password: String!) {
     signUp(email: $email, username: $username, password: $password)
   }
-`
+`;
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -33,45 +30,37 @@ const Form = styled.form`
     width: 100%;
     margin-bottom: 1em;
   }
-  `;
+`;
 
 const SignUp = (props) => {
   const [values, setValues] = useState();
   const client = useApolloClient();
+  let navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'Sign Up - Notedly';
   });
-
 
   const [signUp, { loading, error }] = useMutation(SIGNUP_USER, {
     onCompleted: (data) => {
       localStorage.setItem('token', data.signUp);
       // console.log(data.signUp);
       //  client.writeQuery({data: {isLoggedIn: true}})
-       client.writeQuery({
-         query: gql`
-           query {
-             isLoggedIn
-           }
-         `,
-         data: {
-           isLoggedIn: true,
-         },
-       });
-       history.push('/');
-       location.reload();
-      // window.history.go(0);
-      return data;
+      client.writeQuery({
+        query: gql`
+          query {
+            isLoggedIn
+          }
+        `,
+        data: {
+          isLoggedIn: {
+            data: true,
+          },
+        },
+      });
+      navigate('/');
     },
   });
-
-  const onChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
 
 
   return (
@@ -84,8 +73,15 @@ const SignUp = (props) => {
 };
 
 export default SignUp;
+
 /*
- <Wrapper>
+const onChange = (event) => {
+  setValues({
+    ...values,
+    [event.target.name]: event.target.value,
+  });
+};
+<Wrapper>
       <h2>Sign Up</h2>
       <Form
         onSubmit={(event) => {

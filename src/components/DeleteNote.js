@@ -7,19 +7,18 @@ import { DELETE_NOTE } from './gql/mutation'
 
 import { GET_MY_NOTES, GET_NOTES } from "./gql/query";
 
-import { createBrowserHistory } from 'history';
-let history = createBrowserHistory();
+import { useNavigate } from 'react-router-dom';
 
 const DeleteNote = props => {
+    let navigate = useNavigate();
+
     const [deleteNote] = useMutation(DELETE_NOTE, {
         variables: {
             id: props.noteId
         },
         refetchQueries: [{query: GET_MY_NOTES, GET_MY_NOTES}],
         onCompleted: data => {
-            history.push('/mynotes');
-            location.reload();
-
+            navigate('/mynotes');
         }
     });
     return <ButtonAsLink onClick={deleteNote}>Delete Note</ButtonAsLink>;

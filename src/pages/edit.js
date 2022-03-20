@@ -8,8 +8,7 @@ import NoteForm from '../components/NoteForm';
 import { GET_NOTE, GET_ME } from '../components/gql/query';
 import { EDIT_NOTE } from '../components/gql/mutation';
 
-import { createBrowserHistory } from 'history';
-let history = createBrowserHistory();
+import { useNavigate } from 'react-router-dom';
 
 
 const EditNote = props => {
@@ -20,13 +19,15 @@ const EditNote = props => {
   //noteId проверить соответствие название перемнной в запросе
   const { loading, error, data } = useQuery(GET_NOTE,  {variables: { noteId }  });
 
+  let navigate = useNavigate();
+
   const [editNote] = useMutation(EDIT_NOTE, {
     variables: {
       noteId,
     },
     onCompleted: () => {
-      history.push(`/note/${noteId}`);
-      location.reload();
+      navigate(`../note/${noteId}`);
+      console.log (navigate)
 
     },
   });

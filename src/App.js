@@ -65,7 +65,6 @@ cache.writeQuery({
     },
   });
 
-
 client.onResetStore(() => cache.writeQuery(
   {
     query: gql`
@@ -79,7 +78,7 @@ client.onResetStore(() => cache.writeQuery(
 })
 );
 
-console.log('dataAPP', data)
+console.log('dataAPP', data.isLoggedIn)
 
 import Pages from './pages';
 
