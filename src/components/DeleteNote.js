@@ -16,7 +16,7 @@ const DeleteNote = props => {
         variables: {
             id: props.noteId
         },
-        refetchQueries: [{query: GET_MY_NOTES, GET_MY_NOTES}],
+        refetchQueries: [{query: GET_MY_NOTES}, { query: GET_NOTES }],
         onCompleted: data => {
             navigate('/mynotes');
         }

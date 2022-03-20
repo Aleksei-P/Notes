@@ -18,6 +18,7 @@ const NoteFeed = ({notes}) => {
             {notes.map(note => (
                 <NoteWrapper key={note.id}>
                     <Note note={note} />
+                    {/* {console.log('erer', note)} */}
                     <Link to={`note/${note.id}`}>open note</Link>
                 </NoteWrapper>
             ))}
