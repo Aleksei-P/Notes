@@ -12,15 +12,8 @@ import ButtonAsLink from "./ButtonAsLink";
 import logo from '../img/logo.svg';
 
 import {
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-  createHttpLink,
-  ApolloCache,
   gql,
   useQuery,
-  NormalizedCacheObject,
-  useMutation
 } from '@apollo/client';
 
 const IS_LOGGED_IN = gql`
@@ -41,14 +34,14 @@ const HeaderBar = styled.header`
   height: 64px;
   position: fixed;
   align-items: center;
-  background-color: #fff;
+  background-color: #d4d4d4;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
   z-index: 1;
 `;
 
 const LogoText = styled.h1`
   margin: 0;
-  padding: 0;
+  padding: 0 5px;
   display: inline;
 `;
 
@@ -57,18 +50,13 @@ const Header = (props) => {
   const { data, client } = useQuery(IS_LOGGED_IN);
 
   let navigate = useNavigate();
-  // client.writeQuery({
-  //   query: IS_LOGGED_IN,
-  //   data: { isLoggedIn: !!localStorage.getItem('token') },
-  // });
-
 
   return (
     <header>
         <HeaderBar>
           <img src={logo} alt="Logo" height="40" />
           <LogoText>
-            Notedly
+            Notes
           </LogoText>
           {console.log("dataHeader", data.isLoggedIn.data)}
           <UserState>{

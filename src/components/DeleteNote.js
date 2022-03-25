@@ -21,7 +21,7 @@ const DeleteNote = props => {
             navigate('/mynotes');
         }
     });
-    return <ButtonAsLink onClick={deleteNote}>Delete Note</ButtonAsLink>;
+    return <ButtonAsLink onClick={deleteNote}>🗑️</ButtonAsLink>;
 };
 
 export default DeleteNote;

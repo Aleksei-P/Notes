@@ -13,6 +13,7 @@ import { IS_LOGGED_IN } from './gql/query';
 import { format, parseISO } from 'date-fns';
 
 import styled from 'styled-components';
+import  LinkText from './Link';
 
 const StyledNote = styled.article`
   max-width: 800px;
@@ -20,7 +21,7 @@ const StyledNote = styled.article`
 `;
 
 const MetaData = styled.div`
-  @media (min-width: 500px) {
+  @media (min-width: 300px) {
     display: flex;
     align-items: top;
   }
@@ -39,9 +40,10 @@ const Note = ({ note }) => {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
   if(loading) return <p>Loading!</p>
   if (error) return <p>Error!</p>;
+  console.log('e232323', note);
 
   return (
-    <StyledNote>
+    <StyledNote key={note.id}>
       <MetaData>
         <MetaInfo>
           <img
@@ -57,14 +59,16 @@ const Note = ({ note }) => {
         {data.isLoggedIn ? (
           <UserActions>
             <NoteUser note={note} />
+            {/* <LinkText to={`/edit/${note.id}`}>edit</LinkText> */}
           </UserActions>
         ) : (
-        <UserActions>
-          <em>Favorites:</em> {note.favoriteCount}
-        </UserActions>
+          <UserActions>
+            <em>🤍</em> ({note.favoriteCount})
+          </UserActions>
         )}
-       </MetaData>
+      </MetaData>
       <ReactMarkdown children={note.content} />
+      <br />
     </StyledNote>
   );
 };

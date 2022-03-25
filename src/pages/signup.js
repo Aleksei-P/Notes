@@ -62,7 +62,6 @@ const SignUp = (props) => {
     },
   });
 
-
   return (
     <React.Fragment>
       <UserForm action={signUp} formType="signup" />
@@ -73,54 +72,3 @@ const SignUp = (props) => {
 };
 
 export default SignUp;
-
-/*
-const onChange = (event) => {
-  setValues({
-    ...values,
-    [event.target.name]: event.target.value,
-  });
-};
-<Wrapper>
-      <h2>Sign Up</h2>
-      <Form
-        onSubmit={(event) => {
-          event.preventDefault();
-          signUp({
-            variables: {
-              ...values,
-            },
-          });
-        }}
-      >
-        <label htmlFor="Username">Username</label>
-        <input
-          required
-          type="text"
-          id="username"
-          name="username"
-          placeholder="username"
-          onChange={onChange}
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          type="email"
-          id="email"
-          name="email"
-          placeholder="email"
-          onChange={onChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          type="password"
-          id="password"
-          name="password"
-          placeholder="password"
-          onChange={onChange}
-        />
-        <Button type="submit">Submit</Button>
-      </Form>
-    </Wrapper>
-  */

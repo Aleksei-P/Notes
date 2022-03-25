@@ -10,7 +10,6 @@ import { EDIT_NOTE } from '../components/gql/mutation';
 
 import { useNavigate } from 'react-router-dom';
 
-
 const EditNote = props => {
   //get info user
   const {loading: userLoading, data: userData}  = useQuery(GET_ME);

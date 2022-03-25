@@ -1,9 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
-
-// import { createBrowserHistory } from 'history';
-// let history = createBrowserHistory();
 
 import GlobalStyle from './components/GlobalStyle';
 
@@ -82,14 +78,11 @@ console.log('dataAPP', data.isLoggedIn)
 
 import Pages from './pages';
 
-
 const App = () => {
     return (
       <ApolloProvider client={client}>
         <GlobalStyle />
-      {/* <BrowserRouter> */}
         <Pages />
-        {/* </BrowserRouter> */}
     </ApolloProvider>
     );
 };

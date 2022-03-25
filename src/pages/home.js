@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ReactMarkdown from 'react-markdown';
-
 import { useQuery, gql } from '@apollo/client';
 
 import NoteFeed from '../components/NoteFeed';
@@ -49,14 +47,5 @@ console.log("notes", data)
     </React.Fragment>
   );
 };
-
-// const Home = () => {
-//     return(
-//         <div>
-//            <p>Home page</p>
-//            <Button>Click me</Button>
-//         </div>
-//     );
-// };
 
 export default Home;

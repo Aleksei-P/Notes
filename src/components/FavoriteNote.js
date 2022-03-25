@@ -27,9 +27,8 @@ const FavoriteNote = (props) => {
             setFavorited(false);
             setCount(count - 1);
           }}
-
         >
-          Remove Favorite
+          ❤️
         </ButtonAsLink>
       ) : (
         <ButtonAsLink
@@ -39,10 +38,10 @@ const FavoriteNote = (props) => {
             setCount(count + 1);
           }}
         >
-          Add Favorite
+          🤍
         </ButtonAsLink>
       )}
-      : {count}
+      ({count})
     </React.Fragment>
   );
 };

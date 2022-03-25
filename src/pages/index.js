@@ -30,19 +30,13 @@ const Pages = () => {
       <Fragment>
         <Layout>
           <Routes>
-            {/* <Switch> */}
             <Route exact path="/" element={<Home />} />
-
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/mynotes" element={<MyNotes />} />
               <Route exact path="/new" element={<NewNote />} />
               <Route exact path="/edit/:id" element={<EditNote />} />
+              <Route exact path="/favorites" element={<Favorites />} />
             </Route>
-            {/* <PrivateRoute path="/mynotes" element={<MyNotes />} /> */}
-
-            {/*<Route path="/mynotes" element={<MyNotes />} /> */}
-
-            <Route exact path="/favorites" element={<Favorites />} />
             <Route exact path="/note/:id" element={<NotePage />} />
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/signin" element={<SignIn />} />
@@ -53,38 +47,6 @@ const Pages = () => {
     </BrowserRouter>
   );
 };
-/*
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { loading, error, data } = useQuery(IS_LOGGED_IN);
-  // if the data is loading, display a loading message
-  if (loading) return <p>Loading...</p>;
-  // if there is an error fetching the data, display an error message
-  if (error) return <p>Error!</p>;
-  {console.log(data.isLoggedIn);}
-  return (
-    // <BrowserRouter>
-
-    <Routes>
-      <Route
-        {...rest}
-        render={(props) =>
-          data.isLoggedIn.data ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/signin',
-                state: { from: props.location },
-              }}
-            />
-          )
-        }
-      />
-    </Routes>
-    // </BrowserRouter>
-  );
-};
-*/
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);

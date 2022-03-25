@@ -3,7 +3,6 @@ import { useMutation, gql } from "@apollo/client";
 import NoteForm from "../components/NoteForm";
 
 import { GET_NOTES, GET_MY_NOTES } from "../components/gql/query";
-import Button from "../components/Button";
 
 import { useNavigate } from 'react-router-dom';
 

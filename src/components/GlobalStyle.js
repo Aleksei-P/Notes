@@ -14,20 +14,18 @@ html {
 }
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    background-color: #fff;
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    background-color: #F2F2F2;
     line-height: 1.4;
+
 }
 
-a:link,
-a:visited {
-    color: #0077cc;
+em {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-style: normal;
 }
-a:hover,
-a:focus {
-    color: #004499;
-}
-
 code,
 pre {
     max-width: 100%;
