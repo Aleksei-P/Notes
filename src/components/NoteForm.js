@@ -13,7 +13,7 @@ height: 100%;
 
 const TextArea = styled.textarea`
 width: 100%;
-height: 90%;
+height: 50%;
 `;
 
 const NoteForm = (props) => {
@@ -24,7 +24,6 @@ const NoteForm = (props) => {
             ...values,
             [evt.target.name]: evt.target.value
           })
-          console.log('dffd', values);
       }
 
       return (
@@ -47,7 +46,7 @@ const NoteForm = (props) => {
             placeholder="Note content"
             value={values.content}
             onChange={onChange}
-            />
+          />
           <Button type="submit" >Save</Button>
         </Form>
       </Wrapper>

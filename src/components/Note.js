@@ -13,7 +13,6 @@ import { IS_LOGGED_IN } from './gql/query';
 import { format, parseISO } from 'date-fns';
 
 import styled from 'styled-components';
-import  LinkText from './Link';
 
 const StyledNote = styled.article`
   max-width: 800px;
@@ -40,11 +39,10 @@ const Note = ({ note }) => {
   const { loading, error, data } = useQuery(IS_LOGGED_IN);
   if(loading) return <p>Loading!</p>
   if (error) return <p>Error!</p>;
-  console.log('e232323', note);
 
   return (
-    <StyledNote key={note.id}>
-      <MetaData>
+    <StyledNote>
+      <MetaData key={note.id}>
         <MetaInfo>
           <img
             src={note.author.avatar}
@@ -59,7 +57,6 @@ const Note = ({ note }) => {
         {data.isLoggedIn ? (
           <UserActions>
             <NoteUser note={note} />
-            {/* <LinkText to={`/edit/${note.id}`}>edit</LinkText> */}
           </UserActions>
         ) : (
           <UserActions>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
 import { GET_NOTE } from "../components/gql/query";
 import Note from '../components/Note'

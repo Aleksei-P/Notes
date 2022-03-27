@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import normalize from 'normalize.css';
-import { Link } from "react-router-dom";
 
 export default createGlobalStyle`
 ${normalize}

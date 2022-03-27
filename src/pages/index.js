@@ -2,10 +2,7 @@ import React, { Fragment } from 'react';
 import {
   BrowserRouter,
   Route,
-  Switch,
   Routes,
-  Redirect,
-  Link,
   Navigate,
   Outlet
 } from 'react-router-dom';
@@ -40,7 +37,6 @@ const Pages = () => {
             <Route exact path="/note/:id" element={<NotePage />} />
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/signin" element={<SignIn />} />
-            {/* </Switch> */}
           </Routes>
         </Layout>
       </Fragment>

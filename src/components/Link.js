@@ -7,8 +7,6 @@ const LinkText = styled(Link)`
   border: none;
   padding: 0;
   font: inherit;
-  /* text-decoration-color: #ff0000; */
-  /* text-decoration: underline; */
   text-decoration: none;
   pointer-events: unset;
   cursor: pointer;

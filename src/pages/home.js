@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { useQuery, gql } from '@apollo/client';
 
@@ -14,7 +13,6 @@ const Home = () => {
 
   if (loading) return <p>loading..</p>;
   if (error) return <p>{error.message}</p>;
-console.log("notes", data)
   return (
     <React.Fragment>
       <NoteFeed notes={data.noteFeed.notes} />

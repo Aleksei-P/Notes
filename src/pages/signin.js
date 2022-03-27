@@ -6,8 +6,8 @@ import UserForm from '../components/UserForm';
 import { useNavigate } from 'react-router-dom';
 
 const SIGNIN_USER = gql`
-  mutation signIn($email: String, $password: String!) {
-    signIn(email: $email, password: $password)
+  mutation signIn($username: String, $password: String!) {
+    signIn(username: $username, password: $password)
   }
 `;
 
@@ -35,7 +35,6 @@ const SignIn = (props) => {
       },
     },
         });
-        console.log("343434", data)
         navigate('/');
     },
   });

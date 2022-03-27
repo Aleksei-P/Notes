@@ -2,9 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-// import { useQuery, gql } from '@apollo/client';
-import { Link, withRouter } from 'react-router-dom';
-// import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -58,7 +56,6 @@ const Header = (props) => {
           <LogoText>
             Notes
           </LogoText>
-          {console.log("dataHeader", data.isLoggedIn.data)}
           <UserState>{
             data.isLoggedIn.data ? (
               <ButtonAsLink onClick={() => {
@@ -84,7 +81,7 @@ const Header = (props) => {
           ) : (
             <p>
               <Link to = {'/signin'}>Sign In</Link> or {' '}
-              <Link to = {'/signup'}>Sign Un</Link>
+              <Link to = {'/signup'}>Sign Up</Link>
             </p>
           )}
             </UserState>
