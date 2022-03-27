@@ -17,14 +17,14 @@ height: 50%;
 `;
 
 const NoteForm = (props) => {
-    const [values, setValue] = useState({content: props.content || ''});
+    const [values, setValue] = useState({content: props.note || ''});
 
     const onChange = (evt) => {
-        setValue({
-            ...values,
-            [evt.target.name]: evt.target.value
-          })
-      }
+      setValue({
+        ...values,
+        [evt.target.name]: evt.target.value
+      })
+    }
 
       return (
         <Wrapper>
@@ -46,7 +46,7 @@ const NoteForm = (props) => {
             placeholder="Note content"
             value={values.content}
             onChange={onChange}
-          />
+            />
           <Button type="submit" >Save</Button>
         </Form>
       </Wrapper>

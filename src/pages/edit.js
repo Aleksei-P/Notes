@@ -19,6 +19,7 @@ const EditNote = props => {
   const { loading, error, data } = useQuery(GET_NOTE,  {variables: { noteId }  });
 
   let navigate = useNavigate();
+  console.log(noteId);
 
   const [editNote] = useMutation(EDIT_NOTE, {
     variables: {
@@ -26,8 +27,6 @@ const EditNote = props => {
     },
     onCompleted: () => {
       navigate(`../note/${noteId}`);
-      console.log (navigate)
-
     },
   });
 

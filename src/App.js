@@ -74,8 +74,6 @@ client.onResetStore(() => cache.writeQuery(
 })
 );
 
-console.log('dataAPP', data.isLoggedIn)
-
 import Pages from './pages';
 
 const App = () => {
