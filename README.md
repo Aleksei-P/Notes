@@ -1,19 +1,19 @@
-<img src="cover.png" width="200" align="right" />
+<img src="coverReadme.png" width="200" align="right" />
 
-# Notes app
+# Notes application
 
 This repository contains front-end code of [Notes application](https://my-simple-note.netlify.app/)
 
-## Related Repositories
-
+## Online cloud services
 
 Heroku is used for deploying API
 
 
 Netlify is used for deploying front-end
 
+## Database
 
-Database is MongoDB
+MongoDB
 
 
 
